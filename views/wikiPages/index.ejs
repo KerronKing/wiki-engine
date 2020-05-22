@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wiki Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <a href="/">
+      <h1 class="text-center mb-4">Wiki Engine</h1>
+    </a>
+    <div class="text-center mb-4">
+      <p>
+        Query the database here. Relevant results are returned below.
+      </p>
+    </div>
+    <form class="w-50 container">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter keywords here">
+      </div>
+      <div class="form-group d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </form>
+    <div id="search-results"></div>
+    <footer class="fixed-bottom">
+      <p class="text-center">Made by Kerron King, 2020</p>
+    </footer>
+  </body>
+</html>

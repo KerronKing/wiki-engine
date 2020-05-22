@@ -14,4 +14,8 @@ router.get('/edit', (req, res) => {
   res.render('wikiPages/edit');
 });
 
+router.post('/', (req, res) => {
+
+});
+
 module.exports = router;
