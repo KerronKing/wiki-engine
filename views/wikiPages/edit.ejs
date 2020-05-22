@@ -10,19 +10,12 @@
     <h1 class="text-center mb-4">Wiki Engine</h1>
     <div class="text-center mb-4">
       <p>
-        Welcome to this wiki-style article search engine.
-        Feel free to submit articles to the database and search for
-        anything you'd like.
+        Edit an existing wiki page from storage here.
       </p>
     </div>
-    <div class="w-30 container d-flex justify-content-center">
-      <a href="/wikiPages/new">
-        <button class="btn btn-primary mx-2">Create new article</button>
-      </a>
-      <a href="/wikiPages/index">
-        <button class="btn btn-warning mx-2">Search the database</button>
-      </a>
-    </div>
+    <form action="/wikiPages" method="POST" class="w-50 container">
+      <%- include('../_form') %>
+    </form>
     <footer class="fixed-bottom">
       <p class="text-center">Made by Kerron King, 2020</p>
     </footer>
