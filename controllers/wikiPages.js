@@ -7,17 +7,17 @@ router.get('/index', (req, res) => {
   res.render('wikiPages/index');
 });
 
-router.get('/:id', (req, res) => {
-  const wikiPage = WikiPage.findById(req.params.id);
+router.get('/new', (req, res) => {
+  res.render('wikiPages/new', { wikiPage: new WikiPage() });
+});
+
+router.get('/:id', async (req, res) => {
+  const wikiPage = await WikiPage.findById(req.params.id);
   if (wikiPage) {
     res.render('wikiPages/show', { wikiPage });
   } else {
-    res.redirect('/new');
+    res.redirect('/');
   }
-});
-
-router.get('/new', (req, res) => {
-  res.render('wikiPages/new', { wikiPage: new WikiPage() });
 });
 
 router.get('/edit', (req, res) => {
