@@ -15,4 +15,4 @@ const wikiPageSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.mondel('WikiPage', wikiPageSchema);
+module.exports = mongoose.model('WikiPage', wikiPageSchema);

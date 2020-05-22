@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const wikiPagesRouter = require('./routes/wikiPages');
+const wikiPagesRouter = require('./controllers/wikiPages');
 
 const app = express();
 mongoose.connect('mongodb://localhost/wikiengine',
