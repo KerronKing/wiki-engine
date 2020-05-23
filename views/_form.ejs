@@ -4,6 +4,6 @@
 </div>
 <div class="form-group">
   <label for="content">Enter page content:</label>
-  <textarea class="form-control" name="content" id="content" required><%= wikiPage.content %></textarea>
+  <textarea onchange="preview" class="form-control" name="content" id="content" required><%= wikiPage.content %></textarea>
 </div>
 <button type="submit" class="btn btn-primary">Submit</button>

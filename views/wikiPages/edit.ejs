@@ -20,10 +20,13 @@
     <form action="/wikiPages/<%= wikiPage.id %>?_method=PUT" method="POST" class="w-50 container">
       <%- include('../_form') %>
     </form>
+
+    <div id="preview-panel"></div>
     
     <footer class="fixed-bottom">
       <p class="text-center">Made by Kerron King, 2020</p>
     </footer>
 
+    <script type="module" src="/assets/bundle.js"></script>
   </body>
 </html>

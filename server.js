@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const methodOverride = require('method-override');
 const wikiPagesRouter = require('./routes/wikiPages');
 
@@ -12,6 +13,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 app.get('/', (req, res) => {
   res.render('home');
