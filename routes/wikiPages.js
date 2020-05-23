@@ -53,4 +53,9 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.delete('/:id', async (req, res) => {
+  await WikiPage.findByIdAndDelete(req.params.id);
+  res.redirect('/');
+});
+
 module.exports = router;
