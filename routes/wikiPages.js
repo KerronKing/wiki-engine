@@ -26,8 +26,8 @@ router.get('/new', (req, res) => {
   res.render('wikiPages/new', { wikiPage: new WikiPage() });
 });
 
-router.get('/:id', async (req, res) => {
-  const wikiPage = await WikiPage.findById(req.params.id);
+router.get('/:slug', async (req, res) => {
+  const wikiPage = await WikiPage.findOne({ slug: req.params.slug });
   if (wikiPage) {
     res.render('wikiPages/show', { wikiPage });
   } else {
@@ -47,7 +47,7 @@ router.post('/', async (req, res) => {
 
   try {
     wikiPage = await wikiPage.save();
-    res.redirect(`/wikiPages/${wikiPage.id}`);
+    res.redirect(`/wikiPages/${wikiPage.slug}`);
   } catch (err) {
     res.render('wikiPages/new', { wikiPage });
   }

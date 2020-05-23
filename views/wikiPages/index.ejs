@@ -24,7 +24,7 @@
     <div id="search-results" class="container d-flex justify-content-center">
       <% wikiPages.forEach(page => { %>
         <div class="ml-4 mb-2 p-2 w-25 border">
-          <a href="/wikiPages/<%= page.id %>">
+          <a href="/wikiPages/<%= page.slug %>">
             <%= page.title %>
           </a>
         </div>
