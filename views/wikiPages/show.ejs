@@ -10,6 +10,7 @@
     <a href="/">
       <h1 class="text-center mb-4">Wiki Engine</h1>
     </a>
+
     <div class="container-fluid border w-50 p-2">
       <div class="mb-1 mt-2 d-flex justify-content-center flex-column">
         <h2 class="text-center">
@@ -21,7 +22,7 @@
           </p>
         </div>
         <div class="mb-5 d-flex justify-content-center">
-          <a href="/wikiPages/edit/<%= wikiPage.slug %>" class="btn btn-primary w-10">Edit Page</a>
+          <a href="/wikiPages/edit/<%= wikiPage.id %>"><button class="btn btn-secondary">Edit Page</button></a>
         </div>
       </div>
       <div>
@@ -30,8 +31,10 @@
         </p>
       </div>
     </div>
+
     <footer class="fixed-bottom">
       <p class="text-center">Made by Kerron King, 2020</p>
     </footer>
+    
   </body>
 </html>

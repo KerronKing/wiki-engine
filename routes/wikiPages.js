@@ -35,23 +35,35 @@ router.get('/:slug', async (req, res) => {
   }
 });
 
-router.get('/edit', (req, res) => {
-  res.render('wikiPages/edit');
+router.get('/edit/:id', async (req, res) => {
+  const wikiPage = await WikiPage.findById(req.params.id);
+  res.render('wikiPages/edit', { wikiPage });
 });
 
-router.post('/', async (req, res) => {
-  let wikiPage = new WikiPage({
-    title: req.body.title,
-    content: req.body.content,
-  });
+function saveAndRedirect(path) {
+  return async (req, res) => {
+    let { wikiPage } = req;
+    wikiPage.title = req.body.title;
+    wikiPage.content = req.body.content;
 
-  try {
-    wikiPage = await wikiPage.save();
-    res.redirect(`/wikiPages/${wikiPage.slug}`);
-  } catch (err) {
-    res.render('wikiPages/new', { wikiPage });
-  }
-});
+    try {
+      wikiPage = await wikiPage.save();
+      res.redirect(`/wikiPages/${wikiPage.slug}`);
+    } catch (err) {
+      res.render(`wikiPages/${path}`, { wikiPage });
+    }
+  };
+}
+
+router.post('/', async (req, res, next) => {
+  req.wikiPage = new WikiPage();
+  next();
+}, saveAndRedirect('new'));
+
+router.put('/:id', async (req, res, next) => {
+  req.wikiPage = await WikiPage.findById(req.params.id);
+  next();
+}, saveAndRedirect('edit'));
 
 router.delete('/:id', async (req, res) => {
   await WikiPage.findByIdAndDelete(req.params.id);

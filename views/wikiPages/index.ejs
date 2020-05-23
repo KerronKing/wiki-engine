@@ -23,13 +23,16 @@
     </form>
     <div id="search-results" class="container d-flex justify-content-center">
       <% wikiPages.forEach(page => { %>
-        <div class="ml-4 mb-2 p-2 w-25 border d-flex justify-content-between">
+        <div class="ml-4 mb-2 p-2 w-50 border d-flex justify-content-between">
           <a href="/wikiPages/<%= page.slug %>">
             <%= page.title %>
           </a>
-          <form action="/wikiPages/<%= page.id %>?_method=DELETE" method="POST">
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </form>
+          <div class="d-flex justify-content-right">
+            <a href="/wikiPages/edit/<%= page.id %>" class="btn btn-secondary mr-2">Edit</a>
+            <form action="/wikiPages/<%= page.id %>?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-danger d-inline">Delete</button>
+            </form>
+          </div>
         </div>
       <% }) %>
     </div>
