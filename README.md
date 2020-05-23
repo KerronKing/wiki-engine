@@ -4,7 +4,7 @@ This is a simple wiki-style search engine, built using node.js.
 
 ## Live Demo
 
-Click [here]() to see a live demo.
+Click [here](https://king-wiki-engine.herokuapp.com/) to see a live demo.
 
 ## Built With
 
