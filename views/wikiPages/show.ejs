@@ -11,14 +11,17 @@
       <h1 class="text-center mb-4">Wiki Engine</h1>
     </a>
     <div class="container-fluid border w-50 p-2">
-      <div class="mb-1 mt-2">
+      <div class="mb-1 mt-2 d-flex justify-content-center flex-column">
         <h2 class="text-center">
           <%= wikiPage.title %>
         </h2>
         <div>
-          <p class="text-center mb-4">
+          <p class="text-center text-muted mb-2">
             Date created: <%= wikiPage.createdAt.toDateString() %>
           </p>
+        </div>
+        <div class="mb-5 d-flex justify-content-center">
+          <a href="/wikiPages/edit/<%= wikiPage.id %>" class="btn btn-primary w-10">Edit Page</a>
         </div>
       </div>
       <div>

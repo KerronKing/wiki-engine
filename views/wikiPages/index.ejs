@@ -15,15 +15,21 @@
         Query the database here. Relevant results are returned below.
       </p>
     </div>
-    <form class="w-50 container">
+    <form class="w-50 container mb-4" action="/wikiPages" method="GET">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter keywords here">
+        <input type="text" name="title" class="form-control" placeholder="Enter keywords here">
       </div>
-      <div class="form-group d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary">Search</button>
-      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
     </form>
-    <div id="search-results"></div>
+    <div id="search-results" class="container d-flex justify-content-center">
+      <% wikiPages.forEach(page => { %>
+        <div class="ml-4 mb-2 p-2 w-25 border">
+          <a href="/wikiPages/<%= page.id %>">
+            <%= page.title %>
+          </a>
+        </div>
+      <% }) %>
+    </div>
     <footer class="fixed-bottom">
       <p class="text-center">Made by Kerron King, 2020</p>
     </footer>

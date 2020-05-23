@@ -3,8 +3,23 @@ const WikiPage = require('../models/wikiPage');
 
 const router = express.Router();
 
-router.get('/index', (req, res) => {
-  res.render('wikiPages/index');
+const escapeRegex = text => text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+
+router.get('/', (req, res) => {
+  if (req.query.title) {
+    const regex = new RegExp(escapeRegex(req.query.title), 'gi');
+    WikiPage.find({ title: regex }, (err, pages) => {
+      if (err) {
+        throw err;
+      } else {
+        res.render('wikiPages/index', { wikiPages: pages });
+      }
+    });
+  }
+});
+
+router.get('/index', async (req, res) => {
+  res.render('wikiPages/index', { wikiPages: await WikiPage.find() });
 });
 
 router.get('/new', (req, res) => {
