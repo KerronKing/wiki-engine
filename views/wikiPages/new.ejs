@@ -15,11 +15,20 @@
         Create a new wiki page for storage in the database here.
       </p>
     </div>
-    <form action="/wikiPages" method="POST" class="w-50 container">
-      <%- include('../_form') %>
-    </form>
-    <footer class="fixed-bottom">
-      <p class="text-center">Made by Kerron King, 2020</p>
-    </footer>
-  </body>
-</html>
+    
+      <div class="container-fluid p-2">
+        <div class="d-flex justify-content-center w-50 float-left">
+          <form action="/wikiPages" method="POST" class="w-50">
+            <%- include('../_form') %>
+          </form>
+        </div>
+  
+        <div id="preview-panel" class="float-right w-40 border border-primary p-5 mr-5"></div>
+      </div>
+      
+      <footer class="fixed-bottom">
+        <p class="text-center">Made by Kerron King, 2020</p>
+      </footer>
+  
+      <script type="module" src="/assets/bundle.js"></script>
+    </body>
