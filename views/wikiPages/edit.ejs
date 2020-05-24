@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wiki Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <a href="/">
+      <h1 class="text-center mb-4">Wiki Engine</h1>
+    </a>
+
+    <div class="text-center mb-4">
+      <p>
+        Edit an existing wiki page from storage here.
+      </p>
+    </div>
+    
+    <div class="container-fluid p-2">
+      <div class="d-flex justify-content-center w-50 float-left">
+        <form action="/wikiPages/<%= wikiPage.id %>?_method=PUT" method="POST" class="w-50">
+          <%- include('../_form') %>
+        </form>
+      </div>
+
+      <div id="preview-panel" class="float-right w-40 border border-primary p-5 mr-5"></div>
+    </div>
+    
+    <footer class="fixed-bottom">
+      <p class="text-center">Made by Kerron King, 2020</p>
+    </footer>
+
+    <script type="module" src="/assets/bundle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wiki Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <a href="/">
+      <h1 class="text-center mb-4">Wiki Engine</h1>
+    </a>
+
+    <div class="container-fluid border w-50 p-2">
+      <div class="mb-1 mt-2 d-flex justify-content-center flex-column">
+        <h2 class="text-center">
+          <%= wikiPage.title %>
+        </h2>
+        <div>
+          <p class="text-center text-muted mb-2">
+            Date created: <%= wikiPage.createdAt.toDateString() %>
+          </p>
+        </div>
+        <div class="mb-5 d-flex justify-content-center">
+          <a href="/wikiPages/edit/<%= wikiPage.id %>"><button class="btn btn-secondary">Edit Page</button></a>
+        </div>
+      </div>
+      <div>
+        <p class="text-center">
+          <%- wikiPage.sanitizedHtml %>
+        </p>
+      </div>
+    </div>
+
+    <footer class="fixed-bottom">
+      <p class="text-center">Made by Kerron King, 2020</p>
+    </footer>
+    
+  </body>
+</html>

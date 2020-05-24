@@ -1,0 +1,40 @@
+{
+  "name": "wiki-engine",
+  "version": "1.0.0",
+  "description": "A simple wiki search engine",
+  "main": "index.js",
+  "engines": {
+    "node": "13.6.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "startDev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KerronKing/wiki-engine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KerronKing/wiki-engine/issues"
+  },
+  "homepage": "https://github.com/KerronKing/wiki-engine#readme",
+  "dependencies": {
+    "dompurify": "^2.0.11",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "jsdom": "^16.2.2",
+    "marked": "^1.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.15",
+    "slugify": "^1.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "nodemon": "^2.0.4"
+  }
+}
