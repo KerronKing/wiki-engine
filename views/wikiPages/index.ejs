@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Wiki Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <a href="/">
+      <h1 class="text-center mb-4">Wiki Engine</h1>
+    </a>
+    <div class="text-center mb-4">
+      <p>
+        Query the database here. Relevant results are returned below.
+      </p>
+    </div>
+    <form class="w-50 container mb-4" action="/wikiPages" method="GET">
+      <div class="form-group">
+        <input type="text" name="title" class="form-control" placeholder="Enter keywords here">
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <div id="search-results" class="container d-flex justify-content-center">
+      <% wikiPages.forEach(page => { %>
+        <div class="ml-4 mb-2 p-2 w-50 border d-flex justify-content-between">
+          <a href="/wikiPages/<%= page.slug %>">
+            <%= page.title %>
+          </a>
+          <div class="d-flex justify-content-right">
+            <a href="/wikiPages/edit/<%= page.id %>" class="btn btn-secondary mr-2">Edit</a>
+            <form action="/wikiPages/<%= page.id %>?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-danger d-inline">Delete</button>
+            </form>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+    <footer class="fixed-bottom">
+      <p class="text-center">Made by Kerron King, 2020</p>
+    </footer>
+  </body>
+</html>
